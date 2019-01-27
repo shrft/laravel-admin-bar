@@ -22,7 +22,7 @@ class AdminBar{
         return true;
     }
     public function injectAdminBar($response, $menu){
-        if(!$this->is_html($response)){
+        if(!$this->is_html($response) || !$response->getStatusCode() == '200'){
             return $response;
         }
         // todo@shira: constructorから渡せば、他のMenuオブジェクトに後から変更できる
