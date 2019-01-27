@@ -1,0 +1,45 @@
+{
+    "name": "shrft/adminbar",
+    "description": "Admin bar",
+    "keywords": ["framework", "laravel", "admin"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "kodai shirafuta",
+            "email": "shirafuta.kodai@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "laravel/framework": "~5.7"
+    },
+    "require-dev": {
+        "nunomaduro/larastan": "^0.3.8",
+	"mockery/mockery": "^1.2",
+        "orchestra/database": "^3.6",
+        "orchestra/testbench": "^3.7",
+        "phpunit/phpunit": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "AdminBar\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AdminBar\\Tests\\": "tests/"
+      }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AdminBar\\AdminBarServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
