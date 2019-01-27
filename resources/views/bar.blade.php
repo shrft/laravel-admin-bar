@@ -1,6 +1,6 @@
 <link rel='stylesheet' type='text/css' property='stylesheet' href="{{asset('vendor/adminbar/app.css')}}">
-<header class="adminbar-header">
-    <div class="adminbar-container">
+<header id="shrft-adminbar-header">
+    <div id="shrft-adminbar-container">
         <ul class="horizontal">
             @foreach($menus->getOptions() as $option)
                 @if($option->shouldShow())
