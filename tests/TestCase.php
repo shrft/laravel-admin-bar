@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminBar\Tests;
+namespace Shrft\AdminBar\Tests;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Testing\DatabaseTransactions;

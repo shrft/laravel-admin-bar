@@ -1,6 +1,6 @@
 {
     "name": "shrft/adminbar",
-    "description": "Admin bar",
+    "description": "Add admin toolbar to your front side of your website.",
     "keywords": ["framework", "laravel", "admin"],
     "license": "MIT",
     "authors": [
@@ -22,18 +22,18 @@
     },
     "autoload": {
         "psr-4": {
-            "AdminBar\\": "src/"
+            "Shrft\\AdminBar\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "AdminBar\\Tests\\": "tests/"
+            "Shrft\\AdminBar\\Tests\\": "tests/"
       }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "AdminBar\\AdminBarServiceProvider"
+                "Shrft\\AdminBar\\AdminBarServiceProvider"
             ]
         }
     },

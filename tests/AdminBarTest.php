@@ -1,10 +1,10 @@
 <?php
 
-namespace AdminBar\Tests;
+namespace Shrft\AdminBar\Tests;
 
 use \Illuminate\Http\Request;
 use Mockery as m;
-use AdminBar\AdminBar;
+use Shrft\AdminBar\AdminBar;
 
 class AdminBarTest  extends TestCase{
     public function testShouldShowIfAdmin(){
@@ -38,4 +38,5 @@ class AdminBarTest  extends TestCase{
         $this->assertFalse($bar->shouldShow());
     }
     // todo@shira: exclude pathは複数指定できるようにしたほうがいい
+    // todo@shira: is_htmlもテスト追加する
 }

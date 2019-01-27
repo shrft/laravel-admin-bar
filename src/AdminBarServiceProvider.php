@@ -1,11 +1,10 @@
 <?php
 
 // todo@shira: shrftもnamespaceにいれたほうがいい
-namespace AdminBar;
+namespace Shrft\AdminBar;
 use AdminBar\Middleware\AdminBarMiddleware;
 
 use Illuminate\Support\Facades\Route;
-use Wink\Http\Middleware\Authenticate;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Http\Kernel;
 

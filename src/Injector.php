@@ -1,5 +1,5 @@
 <?php
-namespace AdminBar;
+namespace Shrft\AdminBar;
 
 class Injector{
     protected $response;
