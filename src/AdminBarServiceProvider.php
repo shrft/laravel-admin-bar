@@ -1,8 +1,7 @@
 <?php
 
-// todo@shira: shrftもnamespaceにいれたほうがいい
 namespace Shrft\AdminBar;
-use AdminBar\Middleware\AdminBarMiddleware;
+use Shrft\AdminBar\Middleware\AdminBarMiddleware;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
