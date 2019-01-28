@@ -1,121 +1,104 @@
-.adminbar-header {
-        background-color: #24292e;
-        color: hsla(0,0%,100%,.75);
-        /* padding-bottom: 12px; */
-        /* padding-top: 12px; */
-        z-index: 32;
-        position: fixed;
-        top: 0;
-        /* overflow: hidden; */
-        left: 0;
-        width: 100%;
-        height:50px;
-        padding-left:1em;
-        font-size:14px;
-    }
-    .adminbar-header ul{
-        /* text-align:center; */
-        padding:0;
-    }
-    .adminbar-header ul.horizontal li{
-        padding:0;
-        display:inline-block;
-        color:white;
-        font-weight:bold;
-        vertical-align:middle;
-        line-height:14px;
-        margin-right:28px;
-        /* padding: 0.3em 0.5em; */
-    }
-    .adminbar-header ul.vertical li{
-        padding:0;
-        display:initial;
-        color:white;
-        font-weight:bold;
-        vertical-align:middle;
-        line-height:14px;
-        margin-right:0;
-        /* padding: 0.3em 0.5em; */
-    }
-    .adminbar-header a{
-        color:white;
-        font-weight:bold;
-        text-decoration: none;
-    }
-    .adminbar-header a:hover{
-        color:hsla(0,0%,100%,.75);
-    }
-    body{
-        margin-top: 70px;
-    }
-    /* Dropdown Button */
-.dropbtn {
-
-  font-size:14px;
-  color:white;
-  font-weight:bold;
-  background:none;
-  border: none;
+#shrft-adminbar-header {
+  background-color: #24292e;
+  color: rgba(255, 255, 255, 0.75);
+  z-index: 99999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  padding-left: 1em;
+  font-size: 14px;
 }
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
+#shrft-adminbar-header #shrft-adminbar-container {
+  /* The container <div> - needed to position the dropdown content */
+}
+#shrft-adminbar-header #shrft-adminbar-container ul {
+  padding: 0;
+  margin: 0;
+}
+#shrft-adminbar-header #shrft-adminbar-container ul li {
+  padding: 0;
+  display: inline-block;
+  color: white;
+  font-weight: bold;
+  vertical-align: middle;
+  line-height: 50px;
+  margin-right: 28px;
+}
+#shrft-adminbar-header #shrft-adminbar-container ul.vertical li {
+  display: initial;
+  margin-right: 0;
+}
+#shrft-adminbar-header #shrft-adminbar-container a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+#shrft-adminbar-header #shrft-adminbar-container a:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+#shrft-adminbar-header #shrft-adminbar-container .dropdown {
   position: relative;
   display: inline-block;
+  /* Dropdown Content (Hidden by Default) */
+  /* Show the dropdown menu on hover */
 }
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
+#shrft-adminbar-header #shrft-adminbar-container .dropdown .dropbtn {
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  background: none;
+  border: none;
+}
+#shrft-adminbar-header #shrft-adminbar-container .dropdown .dropbtn .dropdown-caret {
+  border-top-color: rgba(255, 255, 255, 0.75);
+}
+#shrft-adminbar-header #shrft-adminbar-container .dropdown .dropbtn .dropdown-caret {
+  border: 6px solid transparent;
+  border-top-color: currentcolor;
+  content: "";
+  display: inline-block;
+  height: 0;
+  vertical-align: middle;
+  width: 0;
+}
+#shrft-adminbar-header #shrft-adminbar-container .dropdown .dropbtn .dropdown-caret.mt-1 {
+  margin-top: 4px !important;
+}
+#shrft-adminbar-header #shrft-adminbar-container .dropdown .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   /* margin-top:5px; */
+  /* Links inside the dropdown */
+  /* Change color of dropdown links on hover */
 }
-
-/* Links inside the dropdown */
-.dropdown-content a {
+#shrft-adminbar-header #shrft-adminbar-container .dropdown .dropdown-content a {
   color: black;
-  padding: 12px 16px;
+  line-height: 14px;
+  padding: 12px 12px;
   text-decoration: none;
   display: block;
 }
+#shrft-adminbar-header #shrft-adminbar-container .dropdown .dropdown-content a:hover {
+  /* background-color: #ddd; */
+  background-color: #8c8c8c;
+}
+#shrft-adminbar-header #shrft-adminbar-container .dropdown:hover {
+  cursor: pointer;
+}
+#shrft-adminbar-header #shrft-adminbar-container .dropdown:hover .dropdown-content {
+  display: block;
+}
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {
-    /* background-color: #ddd; */
-    background-color: #8c8c8c;
-}
-.dropdown:hover{
-    cursor:pointer;
+body {
+  margin-top: 50px;
 }
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
-/* .dropdown-content-wrapper:hover .dropdown-content {display: block;} */
+/* Dropdown Button */
 
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-    /* background-color: #3e8e41; */
-    /* background-color: #8c8c8c; */
-    
-    }
-.dropdown-caret {
-    border-top-color: hsla(0,0%,100%,.75);
-}
-.dropdown-caret {
-    border: 6px solid transparent;
-    border-top-color: currentcolor;
-    content: "";
-    display: inline-block;
-    height: 0;
-    vertical-align: middle;
-    width: 0;
-}
-.mt-1 {
-    margin-top: 4px!important;
-}
-    
+/*# sourceMappingURL=app.css.map */
