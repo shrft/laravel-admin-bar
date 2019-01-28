@@ -31,18 +31,6 @@ class AdminBarServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/adminbar.php' => config_path('adminbar.php'),
         ]);
-
-
-
-    }
-
-    /**
-     * Register the package routes.
-     *
-     * @return void
-     */
-    private function registerRoutes()
-    {
     }
     /**
      * Register the Debugbar Middleware
@@ -51,7 +39,7 @@ class AdminBarServiceProvider extends ServiceProvider
      */
     protected function registerMiddleware($middleware)
     {
-        $kernel = $this->app[Kernel::class];
-        $kernel->pushMiddleware($middleware);
+        $kernel = $this->app['router'];
+        $kernel->pushMiddlewareToGroup('web', $middleware);
     }
 }

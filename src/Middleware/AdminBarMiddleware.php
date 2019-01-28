@@ -20,16 +20,7 @@ class AdminBarMiddleware
         $response = $next($request);
 
         $bar = new AdminBar($request, config('adminbar.excludes'), config('adminbar.is_admin'));
-
-        //todo@shira:このあたりのチェックも必要かも
-        //!$this->app->runningInConsole() && !$this->app->environment('testing');
-        // Show the Http Response Exception in the Debugbar, when available
-        //if (isset($response->exception)) {
-        //    $this->addThrowable($response->exception);
-        //}
-
-
-        if(config('adminbar.enabled') && $bar->shouldShow()){
+        if( config('adminbar.enabled') && $bar->shouldShow()){
             $response = $bar->injectAdminBar($response, config('adminbar.menus'));
         }
 
