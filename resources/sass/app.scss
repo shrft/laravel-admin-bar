@@ -1,3 +1,16 @@
+#shrft-adminbar-minimized {
+    z-index: 99998;
+    img {
+        height: 25px;
+        width: 25px;
+    }
+    // display:none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    cursor:pointer;
+}
+
 #shrft-adminbar-header {
     background-color: #24292e;
     color: hsla(0, 0%, 100%, .75);
@@ -9,6 +22,10 @@
     height: 50px;
     padding-left: 1em;
     font-size: 14px;
+    overflow:hidden;
+    &.shrft-admin-bar-hide{
+        display:none;
+    }
     #shrft-adminbar-container {
         ul {
             padding: 0;
@@ -26,6 +43,21 @@
         ul.vertical li {
             display: initial;
             margin-right: 0;
+        }
+        #shrft-adminbar-header-close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            line-height: 40px;
+            font-size: 30px;
+            border: 1px solid grey;
+            text-align: center;
+            margin-top: 5px;
+            margin-right: 5px;
+            cursor: pointer;
         }
         a {
             color: white;

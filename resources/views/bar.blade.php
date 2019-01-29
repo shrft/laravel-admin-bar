@@ -1,4 +1,6 @@
 <link rel='stylesheet' type='text/css' property='stylesheet' href="{{asset('vendor/adminbar/app.css')}}">
+<script src="{{asset('vendor/adminbar/app.js')}}" async></script>
+<div id="shrft-adminbar-minimized"><img src="{{asset('vendor/adminbar/mini-icon.png')}}"></div>
 <header id="shrft-adminbar-header">
     <div id="shrft-adminbar-container">
         <ul class="horizontal">
@@ -27,5 +29,6 @@
             @endif
             @endforeach
         </ul>
+        <span id="shrft-adminbar-header-close">×</span>
     </div>
 </header>
