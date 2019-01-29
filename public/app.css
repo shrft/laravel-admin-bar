@@ -21,7 +21,6 @@
   height: 50px;
   padding-left: 1em;
   font-size: 14px;
-  overflow: hidden;
 }
 #shrft-adminbar-header.shrft-admin-bar-hide {
   display: none;

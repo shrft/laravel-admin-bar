@@ -22,7 +22,10 @@
     height: 50px;
     padding-left: 1em;
     font-size: 14px;
-    overflow:hidden;
+
+    // this hide dropdown.
+    // overflow:hidden;
+
     &.shrft-admin-bar-hide{
         display:none;
     }
