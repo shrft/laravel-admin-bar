@@ -16,7 +16,9 @@
                         <div class="dropdown-content">
                             <ul class="vertical">
                                 @foreach($option->getOptions() as $option)
-                                    <li><a href="{{$option->getPath()}}">{{$option->getTitle()}}</a></li>
+                                    @if($option->shouldShow())
+                                        <li><a href="{{$option->getPath()}}">{{$option->getTitle()}}</a></li>
+                                    @endif
                                 @endforeach
                             </ul>
                         </div>
