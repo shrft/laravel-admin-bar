@@ -60,5 +60,19 @@ class MenuTest  extends TestCase{
         $option = new Menu($request, array(), $filter);
         $this->assertFalse($option->shouldShow());
     }
+    public function testChildOptionFilter(){
 
+        $config = ['title'=>'Sub Menu', 'path'=>[
+                             ['title'=>'Option1', 'path'=>'/path/to/option1', 'filter'=>function(){ return false; }],
+                            ]
+                        ];
+
+        $request = m::mock(Request::class);
+        $option = new Menu($request, [$config]);
+        $this->assertFalse(
+            $option->getOptions()->first()->getOptions()->first()->shouldShow()
+        );
+ 
+
+    }
 }

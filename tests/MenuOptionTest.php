@@ -57,6 +57,17 @@ class MenuOptionTest  extends TestCase{
         $this->assertTrue($option->shouldShow());
 
     }
+    public function testShouldNotShowWithCallableFilter(){
+        $title = 'admin';
+        $path = '/admin/top';
+        $filter = function(){
+            return false;
+        };
+        $request = m::mock(Request::class);
+        $option = new MenuOption($request, $title, $path, $filter);
+        $this->assertFalse($option->shouldShow());
+
+    }
     public function testGetPath(){
         $title = 'admin';
         $path = '/admin/top';
