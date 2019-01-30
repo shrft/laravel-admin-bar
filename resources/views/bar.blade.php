@@ -10,7 +10,7 @@
                 @if($option->isMenu())
                 <div class="dropdown">
                     <a class="dropbtn">
-                        Drop Down
+                        {{$option->getTitle()}}
                         <span class="dropdown-caret mt-1"></span>
                     </a>
                         <div class="dropdown-content">
