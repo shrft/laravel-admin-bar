@@ -10,14 +10,11 @@
         }
     ],
     "require": {
-        "php": "^7.1",
-        "laravel/framework": "~5.7"
+        "php": ">= 7.0.0",
+        "laravel/framework": ">= 5.5.0"
     },
     "require-dev": {
-        "nunomaduro/larastan": "^0.3.8",
 	"mockery/mockery": "^1.2",
-        "orchestra/database": "^3.6",
-        "orchestra/testbench": "^3.7",
         "phpunit/phpunit": "^7.4"
     },
     "autoload": {
