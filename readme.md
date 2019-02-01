@@ -7,7 +7,7 @@ Admin bar is an easy-to-access toolbar to your admin pages.
 
 # Supported Version
 
-work in progress...
+- laravel/framework >= 5.7
 
 # Installation
 
