@@ -14,7 +14,7 @@ class Injector{
         } else {
             $original = $original . $content;
         }
-        \Log::info($original);
+
         $this->response->setContent($original);
         $this->response->headers->remove('Content-Length');
         return $this->response;
