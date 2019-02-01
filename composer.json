@@ -1,5 +1,5 @@
 {
-    "name": "shrft/adminbar",
+    "name": "shrft/laravel-admin-bar",
     "description": "Add admin toolbar to your front side of your website.",
     "keywords": ["framework", "laravel", "admin"],
     "license": "MIT",
