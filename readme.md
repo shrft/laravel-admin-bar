@@ -3,7 +3,7 @@
 This package help you add wordpress like admin bar to your Laravel application.
 Admin bar is an easy-to-access toolbar to your admin pages.
 
-[admin bar image]
+https://raw.githubusercontent.com/shrft/laravel-admin-bar/master/resources/images/adiminbar-image.png
 
 # Supported Version
 
