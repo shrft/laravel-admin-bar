@@ -81,12 +81,11 @@ return array(
 # Advanced Configuration
 
 ### Generate path dynamically
-You can pass callback to `path` and you can access `Illuminate\HttpRequest $request` within the callback so that you can generate link dynamically based on the current url. 
+You can pass callback to `path` in `menus` array and you can access `Illuminate\HttpRequest $request` within the callback so that you can generate link dynamically based on the current url. 
 
-#### How to configure `edit this article` link in article pages in a website?
+### How to add `edit this post` link in every post page
 
-Assume you have the following 2 routes.
-The first one is for article page and the seccond one is edit page of articles.
+Assume you have the following 2 routes, the first one is for post pages and the seccond one is edit page of the posts.
 
 ```php
 # article page
@@ -105,19 +104,19 @@ Then, you can do something like this.
         ['title'=>'edit this post',
          'path'=>function($request){
                     $postid = $request->route('id');
-                    return '/admin/post/' . $postid;
+                    return '/admin/post/edit/' . $postid;
                  }, 
          'filter'=>'post/*'],
         ),
 ```
 
-the `filter` is explained below. 
+The `filter` is explained below. 
 In the above, it means show `edit this post` link only when current page's path start with `post/`.
 
 ### Filter
-You can configure Admin Bar so that a link is shown in a specific condition.
+You can configure Admin Bar so that a link show up only in a specific condition.
 
-for example, if you want to show `Add Post` link only when you are visiting pages of which url path start with 'post/', you can set filter option like below.
+For example, if you want to show `Add Post` link only when you are visiting pages of which url path start with 'post/', you can set filter option like below.
 
 ```php
 'menus' => array(
@@ -141,7 +140,7 @@ If you want to show `Add Post` link only to a user with author role, you might d
         )
 
 ```
-If you need, you have access to `Illuminate\HttpRequest $request` in the callback.
+You have access to `Illuminate\HttpRequest $request` in the callback here as well.
 
 ### Drop Down Menu
 You can add drop down menu to Admin Bar.
@@ -157,12 +156,7 @@ To create drop down, pass an array to `path`.
         ],
         ),
 ```
- 
-
-
-- Show a link only certain conditions.
-- Show a drop down menu in Admin Bar.
 
 # Lincense
 
-Wink is open-sourced software licensed under the MIT license.
+Laravel Admin Bar is open-sourced software licensed under the MIT license.
