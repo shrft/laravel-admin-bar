@@ -18,7 +18,7 @@ composer require shrft/laravel-admin-bar
 
 Once Composer is done, run the following command:
 ```
-php artisan vendor:publish --provider=Shrft\\AdminBar\\AdminBarServiceProvider
+php artisan vendor:publish --provider="Shrft\AdminBar\AdminBarServiceProvider"
 ```
 
 # Basic Usage
