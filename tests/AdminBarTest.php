@@ -37,6 +37,4 @@ class AdminBarTest  extends TestCase{
         $bar = new AdminBar($request, $exclude_path, $isAdmin);
         $this->assertFalse($bar->shouldShow());
     }
-    // todo@shira: exclude pathは複数指定できるようにしたほうがいい
-    // todo@shira: is_htmlもテスト追加する
 }

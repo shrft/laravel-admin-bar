@@ -12,8 +12,7 @@ class MenuOption{
         $this->path = $path;
         $this->filter = $filter;
     }
-    //todo@shira: throw error if invalid key?
-    // abstract か trait
+    // todo: it might be better to move this method to trait.
     public function isMenu(){
         return false;
     }

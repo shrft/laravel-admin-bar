@@ -44,7 +44,7 @@ class Menu{
     protected function getFilter(){
         return $this->filter;
     }
-    // todo@shira: traitとかabstractに移動する?
+    // todo: the same function exists in MenuOption. refactoring needed.
     protected function checkFilterPasses(){
         $filter = $this->getFilter();
         if(!$filter) return true;

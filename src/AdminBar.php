@@ -25,7 +25,6 @@ class AdminBar{
         if(!$this->is_html($response) || !$response->getStatusCode() == '200'){
             return $response;
         }
-        // todo@shira: constructorから渡せば、他のMenuオブジェクトに後から変更できる
         $menu = new Menu($this->request, $menu);
 
         $renderedContent = view('adminbar::bar')->with(['menus'=>$menu])->render();
@@ -42,8 +41,5 @@ class AdminBar{
     protected function is_html($response){
             return $response->headers->has('Content-Type') &&
                 strpos($response->headers->get('Content-Type'), 'html') !== false;
-            // todo@shira: ここもうちょっとちゃんとかんがえたほうがいいかも。
-            // || $this->request->getRequestFormat() === 'html';
-            // || $this->response->getContent() !== false;
     }
 }

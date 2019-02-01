@@ -30,7 +30,6 @@ class MenuTest  extends TestCase{
     }
     public function testShouldShow(){
 
-        // todo@shira traitかabstract classに移動する?
         $request = m::mock(Request::class);
 
         $config = array();
