@@ -21,6 +21,8 @@ Once Composer is done, run the following command:
 php artisan vendor:publish --provider="Shrft\AdminBar\AdminBarServiceProvider"
 ```
 
+If you visit your page, you already have Admin bar!
+
 # Basic Usage
 
 You can configure how and when admin bar should be shown via the configuration file called `adminbar.php`.
