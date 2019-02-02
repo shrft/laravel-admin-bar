@@ -2,12 +2,14 @@
 
 namespace Shrft\AdminBar\Tests;
 
-use \Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use Mockery as m;
 use Shrft\AdminBar\AdminBar;
 
-class AdminBarTest  extends TestCase{
-    public function testShouldShowIfAdmin(){
+class AdminBarTest extends TestCase
+{
+    public function testShouldShowIfAdmin()
+    {
         $isAdmin = false;
         $exclude_path = null;
         $request = m::mock(Request::class);
@@ -20,15 +22,17 @@ class AdminBarTest  extends TestCase{
         $bar = new AdminBar($request, $exclude_path, $isAdmin);
         $this->assertTrue($bar->shouldShow());
 
-        $isAdmin = function(){ return true; };
+        $isAdmin = function () { return true; };
         $bar = new AdminBar($request, $exclude_path, $isAdmin);
         $this->assertTrue($bar->shouldShow());
 
-        $isAdmin = function(){ return false; };
+        $isAdmin = function () { return false; };
         $bar = new AdminBar($request, $exclude_path, $isAdmin);
         $this->assertFalse($bar->shouldShow());
     }
-    public function testShouldNotShowIfExcludePathMatch(){
+
+    public function testShouldNotShowIfExcludePathMatch()
+    {
         $isAdmin = true;
         $exclude_path = 'admin/*';
         $request = m::mock(Request::class);

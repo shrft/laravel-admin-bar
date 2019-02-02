@@ -1,12 +1,15 @@
 <?php
 
 namespace Shrft\AdminBar\Tests;
-use Shrft\AdminBar\MenuOption;
-use \Illuminate\Http\Request;
-use Mockery as m;
 
-class MenuOptionTest  extends TestCase{
-    public function testShouldShowOption(){
+use Illuminate\Http\Request;
+use Mockery as m;
+use Shrft\AdminBar\MenuOption;
+
+class MenuOptionTest extends TestCase
+{
+    public function testShouldShowOption()
+    {
         $title = 'admin';
         $path = '/admin/top';
         $filter = null;
@@ -16,7 +19,9 @@ class MenuOptionTest  extends TestCase{
         $option = new MenuOption($request, $title, $path, $filter);
         $this->assertTrue($option->shouldShow());
     }
-    public function testShouldShowIfFilterDoesNotMatch(){
+
+    public function testShouldShowIfFilterDoesNotMatch()
+    {
         $title = 'admin';
         $path = '/admin/top';
         $filter = '/post';
@@ -27,7 +32,8 @@ class MenuOptionTest  extends TestCase{
         $this->assertTrue($option->shouldShow());
     }
 
-    public function testShouldNotShowIfFilterDoesNotMatch(){
+    public function testShouldNotShowIfFilterDoesNotMatch()
+    {
         $title = 'admin';
         $path = '/admin/top';
         $filter = '/post';
@@ -37,7 +43,9 @@ class MenuOptionTest  extends TestCase{
         $option = new MenuOption($request, $title, $path, $filter);
         $this->assertFalse($option->shouldShow());
     }
-    public function testShouldNotShowIfPathIsEmpty(){
+
+    public function testShouldNotShowIfPathIsEmpty()
+    {
         $title = 'admin';
         $path = null;
         $filter = null;
@@ -46,29 +54,33 @@ class MenuOptionTest  extends TestCase{
         $option = new MenuOption($request, $title, $path, $filter);
         $this->assertFalse($option->shouldShow());
     }
-    public function testShouldShowWithCallableFilter(){
+
+    public function testShouldShowWithCallableFilter()
+    {
         $title = 'admin';
         $path = '/admin/top';
-        $filter = function(){
+        $filter = function () {
             return true;
         };
         $request = m::mock(Request::class);
         $option = new MenuOption($request, $title, $path, $filter);
         $this->assertTrue($option->shouldShow());
-
     }
-    public function testShouldNotShowWithCallableFilter(){
+
+    public function testShouldNotShowWithCallableFilter()
+    {
         $title = 'admin';
         $path = '/admin/top';
-        $filter = function(){
+        $filter = function () {
             return false;
         };
         $request = m::mock(Request::class);
         $option = new MenuOption($request, $title, $path, $filter);
         $this->assertFalse($option->shouldShow());
-
     }
-    public function testGetPath(){
+
+    public function testGetPath()
+    {
         $title = 'admin';
         $path = '/admin/top';
         $filter = null;
@@ -76,18 +88,22 @@ class MenuOptionTest  extends TestCase{
         $option = new MenuOption($request, $title, $path, $filter);
         $this->assertEquals($path, $option->getPath());
     }
-    public function testGetPathFromCallback(){
+
+    public function testGetPathFromCallback()
+    {
         $title = 'admin';
-        $path = function(){ return '/admin/top';};
+        $path = function () { return '/admin/top'; };
         $filter = null;
         $request = m::mock(Request::class);
         $option = new MenuOption($request, $title, $path, $filter);
         $this->assertEquals('/admin/top', $option->getPath());
     }
-    public function testGetPathFromCallbackWithParameter(){
+
+    public function testGetPathFromCallbackWithParameter()
+    {
         $title = 'admin';
-        $path = function($request){ 
-            return '/post/' . $request->route('id');
+        $path = function ($request) {
+            return '/post/'.$request->route('id');
         };
         $filter = null;
         $request = m::mock(Request::class);
@@ -95,7 +111,9 @@ class MenuOptionTest  extends TestCase{
         $option = new MenuOption($request, $title, $path, $filter);
         $this->assertEquals('/post/post_id', $option->getPath());
     }
-    public function testGetTitle(){
+
+    public function testGetTitle()
+    {
         $title = 'admin';
         $path = '/admin/top';
         $filter = null;
@@ -103,6 +121,6 @@ class MenuOptionTest  extends TestCase{
         $option = new MenuOption($request, $title, $path, $filter);
         $this->assertEquals('admin', $option->getTitle());
     }
+
     // route aliasも使えた方がいい
-    
 }

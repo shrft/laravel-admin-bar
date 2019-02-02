@@ -1,52 +1,73 @@
 <?php
+
 namespace Shrft\AdminBar;
 
-class MenuOption{
+class MenuOption
+{
     protected $request;
     protected $title;
     protected $path;
     protected $filter;
-    public function __construct($request, $title, $path, $filter=null){
+
+    public function __construct($request, $title, $path, $filter = null)
+    {
         $this->request = $request;
         $this->title = $title;
         $this->path = $path;
         $this->filter = $filter;
     }
+
     // todo: it might be better to move this method to trait.
-    public function isMenu(){
+    public function isMenu()
+    {
         return false;
     }
-    public function shouldShow(){
-        if(!$this->checkFilterPasses()){
+
+    public function shouldShow()
+    {
+        if (! $this->checkFilterPasses()) {
             return false;
         }
-        if(!$this->getPath()){
+        if (! $this->getPath()) {
             return false;
         }
+
         return true;
     }
-    public function getPath(){
-        if(is_callable($this->path)){
+
+    public function getPath()
+    {
+        if (is_callable($this->path)) {
             return call_user_func($this->path, $this->request);
         }
+
         return $this->path;
     }
-    public function getTitle(){
+
+    public function getTitle()
+    {
         return $this->title;
     }
-    protected function checkFilterPasses(){
-        $filter = $this->getFilter();
-        if(!$filter) return true;
 
-        if(is_callable($filter)){
+    protected function checkFilterPasses()
+    {
+        $filter = $this->getFilter();
+        if (! $filter) {
+            return true;
+        }
+
+        if (is_callable($filter)) {
             return call_user_func($filter, $this->request);
         }
-        if(!$this->request->is($this->filter)){
+        if (! $this->request->is($this->filter)) {
             return false;
         }
+
         return true;
     }
-    protected function getFilter(){
+
+    protected function getFilter()
+    {
         return $this->filter;
     }
 }

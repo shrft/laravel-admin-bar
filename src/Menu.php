@@ -1,12 +1,16 @@
 <?php
+
 namespace Shrft\AdminBar;
 
-class Menu{
+class Menu
+{
     protected $menuOptions;
     protected $title;
     protected $request;
     protected $filter;
-    public function __construct($request, $menuOptions=array(), $filter=null,$title=null){
+
+    public function __construct($request, $menuOptions = [], $filter = null, $title = null)
+    {
         // dd($request);
         $this->request = $request;
         $this->menuOptions = $this->createMenuOptions($menuOptions);
@@ -14,48 +18,65 @@ class Menu{
         $this->title = $title;
         $this->filter = $filter;
     }
-    public function isMenu(){
+
+    public function isMenu()
+    {
         return true;
     }
-    public function getTitle(){
+
+    public function getTitle()
+    {
         return $this->title;
     }
-    public function getOptions(){
+
+    public function getOptions()
+    {
         // dd($this->menuOptions);
         return $this->menuOptions;
     }
-    protected function createMenuOptions($options){
+
+    protected function createMenuOptions($options)
+    {
         $menuOptions = [];
-        foreach($options as $option){
+        foreach ($options as $option) {
             // dd($option);
-            if(is_array($option['path'])){
-                $menuOptions[] = new Menu($this->request, $option['path'], array_get($option, 'filter'),$option['title']);
+            if (is_array($option['path'])) {
+                $menuOptions[] = new Menu($this->request, $option['path'], array_get($option, 'filter'), $option['title']);
                 continue;
             }
             $menuOptions[] = new MenuOption($this->request, $option['title'], $option['path'], array_get($option, 'filter'));
             // dd($this->menuOptions);
         }
+
         return collect($menuOptions);
         // dd($this->menuOptions->first());
     }
-    public function shouldShow(){
+
+    public function shouldShow()
+    {
         return $this->checkFilterPasses();
     }
-    protected function getFilter(){
+
+    protected function getFilter()
+    {
         return $this->filter;
     }
-    // todo: the same function exists in MenuOption. refactoring needed.
-    protected function checkFilterPasses(){
-        $filter = $this->getFilter();
-        if(!$filter) return true;
 
-        if(is_callable($filter)){
+    // todo: the same function exists in MenuOption. refactoring needed.
+    protected function checkFilterPasses()
+    {
+        $filter = $this->getFilter();
+        if (! $filter) {
+            return true;
+        }
+
+        if (is_callable($filter)) {
             return call_user_func($filter, $this->request);
         }
-        if(!$this->request->is($this->filter)){
+        if (! $this->request->is($this->filter)) {
             return false;
         }
+
         return true;
     }
- 
 }
