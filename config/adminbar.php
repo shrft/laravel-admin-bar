@@ -48,5 +48,24 @@ return array(
     'menus' => array(
         ['title'=>'Admin Top', 'path'=>'/admin'],
         ['title'=>'Add a post', 'path'=>'/admin/post/new'],
+        // you can pass callback to the path
+        ['title'=>'Edit a post', 'path'=>function($request){
+
+            // this is an example of how you generate pass dynamically.
+
+            if($request->is('post/*')){
+                $postid = $request->route('id');
+                return '/admin/post/edit/' . $postid;
+            }
+
+            // if you return false, this link is not displayed.
+            return false;
+        }],
+        // pass an array to path for dropdown menu.
+        ['title'=>'Drop Down', 'path'=>[
+                                 ['title'=>'Option1', 'path'=>'/path/to/option1'],
+                                 ['title'=>'Option2', 'path'=>'/path/to/option2']
+                                ]
+        ],
         ),
 );
