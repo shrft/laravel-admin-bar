@@ -28,7 +28,6 @@ class Menu
     /**
      * The filter to determine if this menu should be shown.
      *
-     *
      * @var bool|Closure
      */
     protected $filter;
