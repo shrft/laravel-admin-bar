@@ -78,90 +78,28 @@ return array(
     'menus' => array(
         ['title'=>'Admin Top', 'path'=>'/admin'],
         ['title'=>'Add a post', 'path'=>'/admin/post/new'],
-        ),
-);
-```
+        // you can pass callback to the path
+        ['title'=>'Edit a post', 'path'=>function($request){
 
-# Advanced Configuration
+            // this is an example of how you generate pass dynamically.
 
-### Generate path dynamically
-You can pass a callback to `path` in the array `menus` and you can access `Illuminate\HttpRequest $request` within the callback so that you can generate link dynamically based on the current url. 
+            if($request->is('post/*')){
+                $postid = $request->route('id');
+                return '/admin/post/edit/' . $postid;
+            }
 
-### How to add `edit this post` link in every post page
-
-Assume you have the following 2 routes, the first one is for post pages and the second one is the edit page of the posts.
-
-```php
-# article page
-Route::get('/post/{id}', ['uses'=>'PostController@show']);
-
-# page to edit an article
-Route::get('/admin/post/edit/{id}', ['uses'=>'Admin\PostController@edit']);
-
-```
-
-Then, you can do something like this.
-
-```php
-'menus' => array(
-        ['title'=>'Admin Top', 'path'=>'/admin'],
-        ['title'=>'edit this post',
-         'path'=>function($request){
-                    $postid = $request->route('id');
-                    return '/admin/post/edit/' . $postid;
-                 }, 
-         'filter'=>'post/*'],
-        ),
-```
-
-The `filter` is explained below. 
-In the above, it means show `edit this post` link only when current page's path start with `post/`.
-
-### Filter
-You can configure Admin Bar so that a link show up only in a specific condition.
-
-For example, if you want to show `Add Post` link only when you are visiting pages of which url path start with 'post/', you can set filter option like below.
-
-```php
-'menus' => array(
-        ['title'=>'Admin Top', 'path'=>'/admin'],
-        ['title'=>'Add Post', 'path'=>'/admin/post/new', 'filter'=>'post/*'],
-        )
-```
-Admin Bar checks if the current url matches the path set in the filter with `Illuminate\Http\Request::is()` and show the link only when it returns true.
-
-You can also pass callback to the filter option if you need more advanced configuration.
-
-If you want to show `Add Post` link only to a user with role `author`, you might do something like this.
-
-```php
-'menus' => array(
-        ['title'=>'Admin Top', 'path'=>'/admin'],
-        ['title'=>'Add Post',
-         'path'=>'/admin/post/new',
-         'filter'=>function($request){
-             return Auth::user()->isRole('author');
-            }],
-        )
-
-```
-You have access to `Illuminate\HttpRequest $request` in the callback here as well.
-
-### Drop Down Menu
-You can add drop down menu to Admin Bar.
-To create drop down, pass an array to `path`.
-
-```php
-'menus' => array(
-        ['title'=>'Admin Top', 'path'=>'/admin'],
+            // if you return false, this link is not displayed.
+            return false;
+        }],
+        // pass an array to path for dropdown menu.
         ['title'=>'Drop Down', 'path'=>[
                                  ['title'=>'Option1', 'path'=>'/path/to/option1'],
                                  ['title'=>'Option2', 'path'=>'/path/to/option2']
                                 ]
         ],
         ),
+);
 ```
-
 # Lincense
 
 Laravel Admin Bar is open-sourced software licensed under the MIT license.
