@@ -32,11 +32,6 @@ class AdminBarServiceProvider extends ServiceProvider
             __DIR__ . '/../config/adminbar.php' => config_path('adminbar.php'),
         ]);
     }
-    /**
-     * Register the Debugbar Middleware
-     *
-     * @param  string $middleware
-     */
     protected function registerMiddleware($middleware)
     {
         $kernel = $this->app['router'];
