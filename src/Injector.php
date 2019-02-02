@@ -4,13 +4,26 @@ namespace Shrft\AdminBar;
 
 class Injector
 {
+    /**
+     * @var mixed
+     */
     protected $response;
 
+    /**
+     * Create Injector instance.
+     *
+     * @var mixed
+     */
     public function __construct($response)
     {
         $this->response = $response;
     }
 
+    /**
+     * Inject content to response.
+     *
+     * @var string
+     */
     public function inject($content)
     {
         $original = $this->response->getContent();

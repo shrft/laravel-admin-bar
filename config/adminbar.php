@@ -38,6 +38,7 @@ return [
 
         return true;
     },
+
     /*
      *
      * Specify links to show on Admin Bar.

@@ -7,6 +7,9 @@ use Shrft\AdminBar\Middleware\AdminBarMiddleware;
 
 class AdminBarServiceProvider extends ServiceProvider
 {
+    /**
+     * Register any package services.
+     */
     public function register()
     {
         $this->mergeConfigFrom(
@@ -30,6 +33,9 @@ class AdminBarServiceProvider extends ServiceProvider
         ]);
     }
 
+    /**
+     * Register Admin Bar middleware.
+     */
     protected function registerMiddleware($middleware)
     {
         $kernel = $this->app['router'];
