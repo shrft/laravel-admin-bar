@@ -21,7 +21,7 @@ Once Composer is done, run the following command:
 php artisan vendor:publish --provider="Shrft\AdminBar\AdminBarServiceProvider"
 ```
 
-If you visit your page, you already have Admin bar!
+**If you visit your page, you already have Admin bar!**
 
 # Basic Usage
 
@@ -47,7 +47,7 @@ return array(
      * your admin pages. 
      * 
      * The default is 'admin/*'
-     * When loading Admin Bar, It checks if current url matches the path set here with Illuminate\Http\Request::is().
+     * The pass is checked with Illuminate\Http\Request::is().
      *  
      * */
     'excludes' => 'admin/*',
