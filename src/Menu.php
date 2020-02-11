@@ -2,6 +2,8 @@
 
 namespace Shrft\AdminBar;
 
+use Illuminate\Support\Arr;
+
 class Menu
 {
     /**
@@ -87,12 +89,15 @@ class Menu
     protected function createMenuOptions($options)
     {
         $menuOptions = [];
+
         foreach ($options as $option) {
             if (is_array($option['path'])) {
-                $menuOptions[] = new Menu($this->request, $option['path'], array_get($option, 'filter'), $option['title']);
+                $menuOptions[] = new Menu($this->request, $option['path'], Arr::get($option, 'filter'), $option['title']);
+
                 continue;
             }
-            $menuOptions[] = new MenuOption($this->request, $option['title'], $option['path'], array_get($option, 'filter'));
+
+            $menuOptions[] = new MenuOption($this->request, $option['title'], $option['path'], Arr::get($option, 'filter'));
         }
 
         return collect($menuOptions);
